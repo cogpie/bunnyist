@@ -35,8 +35,6 @@ var heart;
 var heartPipelineInstance;
 var updateFunctions = [];
 var emitter;
-var miss;
-var you;
 var end_text;
 
 function preload ()
@@ -58,7 +56,7 @@ function create ()
         x: { min: 0, max: game.config.width },
         y: { min: game.config.height + 50, max: game.config.height + 1000 },
         speedY: { min: -400, max: -200 },
-        frame: Phaser.Utils.Array.NumberArray(8, 58),
+        frame: [45, 41, 51, 51, 0, 57, 47, 53], // miss you
         frequency: 100,
         lifespan: 4000,
         quantity: 100,
@@ -106,18 +104,8 @@ function create ()
         google: {
             families: [ 'Ubuntu' ]
         },
-        testStrings: "missyou",
+        testStrings: "end",
         active: function() {
-            miss = that.add.text(center_x, center_y - 45, 'miss', { font: 'bold 128px "Ubuntu"', color: '#24aff2' });
-            miss.alpha = 0;
-            miss.setOrigin(0.5, 0.5);
-            miss.setStroke("#ffffff", 6);
-
-            you = that.add.text(center_x, center_y + 45, 'you', { font: 'bold 128px "Ubuntu"', color: '#24aff2' });
-            you.alpha = 0;
-            you.setOrigin(0.5, 0.5);
-            you.setStroke("#ffffff", 6);
-
             end_text = that.add.text(center_x, center_y, 'end', { font: 'bold 64px "Ubuntu"', color: '#ff6600' });
             end_text.alpha = 0;
             end_text.setOrigin(0.5, 0.5);
@@ -208,6 +196,7 @@ function heart_beat(context) {
         emitter.dead.length = 0;
         emitter.alive.length = 0;
         emitter.setQuantity(50);
+        emitter.setFrame([44, 47, 54, 37]); // love
         emitter.setTint(0xff24aff2);
         emitter.setPosition(
             { min: 0, max: context.game.config.width },
@@ -234,16 +223,8 @@ function heart_beat(context) {
         }
     }
 
-    // miss you text
-    if (heart_tick >= 110 + (beat * 8)) {
-        miss.alpha += 0.01;
-        you.alpha += 0.01;
-    }
-
     // end
     if (heart_tick >= 110 + (beat * 20)) {
-        miss.destroy();
-        you.destroy();
         heart.destroy();
         emitter.stop();
         end_text.alpha += 0.01;
