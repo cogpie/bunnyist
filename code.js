@@ -227,8 +227,8 @@ function heart_beat(context) {
     if (heart_tick >= 110 + (beat * 20)) {
         heart.destroy();
         emitter.stop();
-        end_text.alpha += 0.01;
-        if (end_text.alpha >= 0.8) {
+        end_text.alpha += 0.012;
+        if (end_text.alpha >= 1.0) {
             updateFunctions = [];    
         }
         if (emitter.alive.length == 0) {
