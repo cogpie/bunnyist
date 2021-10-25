@@ -45,7 +45,7 @@ function preload ()
     this.load.image('bunnist', 'assets/bunnist.png');
     this.load.image('mask', 'assets/mask.png');
     this.load.plugin('rexpixelationpipelineplugin', 'https://raw.githubusercontent.com/rexrainbow/phaser3-rex-notes/master/dist/rexpixelationpipelineplugin.min.js', true);
-    this.load.image('heart', 'assets/heart.png');
+    this.load.image('heart', 'assets/broken-heart.png');
     this.load.script('webfont', 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js');
 }
 
