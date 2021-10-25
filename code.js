@@ -223,6 +223,14 @@ function heart_beat(context) {
         }
     }
 
+    // background flash
+    if (heart_tick == 110 + (beat * 16)) {
+        context.cameras.main.setBackgroundColor(0xffb4dfff);
+    }
+    else if (heart_tick == 110 + (beat * 16) + 5) {
+        context.cameras.main.setBackgroundColor(0);
+    }
+
     // end
     if (heart_tick >= 110 + (beat * 16)) {
         heart.destroy();
