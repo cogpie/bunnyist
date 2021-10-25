@@ -104,9 +104,9 @@ function create ()
         google: {
             families: [ 'Ubuntu' ]
         },
-        testStrings: "end",
+        testStrings: "see you",
         active: function() {
-            end_text = that.add.text(center_x, center_y, 'end', { font: 'bold 64px "Ubuntu"', color: '#ff6600' });
+            end_text = that.add.text(center_x, center_y, 'see you', { font: 'bold 64px "Ubuntu"', color: '#ff6600' });
             end_text.alpha = 0;
             end_text.setOrigin(0.5, 0.5);
             end_text.setStroke("#ffffff", 3);
