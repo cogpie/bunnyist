@@ -224,7 +224,7 @@ function heart_beat(context) {
     }
 
     // end
-    if (heart_tick >= 110 + (beat * 20)) {
+    if (heart_tick >= 110 + (beat * 16)) {
         heart.destroy();
         emitter.stop();
         end_text.alpha += 0.012;
